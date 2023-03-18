@@ -3,8 +3,8 @@ import java.util.*;
 public class PersonComparator implements Comparator<Person> {
     @Override
     public int compare(Person p1, Person p2) {
-        int person1 = countElement(p1.getSurname());
-        int person2 = countElement(p2.getSurname());
+        int person1 = p1.getNumberWords();
+        int person2 = p2.getNumberWords();
         if(person1 > p1.getMaxWord()){
             person1 = p1.getMaxWord();
         }
@@ -16,17 +16,5 @@ public class PersonComparator implements Comparator<Person> {
         } else {
             return Integer.compare(p1.getAge(), p2.getAge());
         }
-    }
-    private int countElement(String text){
-        int count = 0;
-        for(char element : text.toCharArray()){
-            if(element == '-'){
-                count += 1;
-            }
-            if(element == ' '){
-                count += 1;
-            }
-        }
-        return count;
     }
 }
